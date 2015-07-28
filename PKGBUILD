@@ -5,12 +5,12 @@
 _pkgname=nvidia
 pkgname=$_pkgname-340xx-bede
 pkgver=340.76
-_extramodules=4.1-BEDE-external
-pkgrel=23
+_extramodules=4.2-BEDE-external
+pkgrel=23.1
 pkgdesc="NVIDIA 340xx drivers for linux-bede"
 arch=('i686' 'x86_64')
 url="http://www.nvidia.com/"
-makedepends=('linux-bede>=4.1.3-4' 'linux-bede<4.2' 'linux-bede-headers>=4.1' 'linux-bede-headers<4.2' "nvidia-340xx-utils=$pkgver" "nvidia-340xx-libgl=$pkgver")
+makedepends=('linux-bede>=4.2rc1' 'linux-bede<4.3' 'linux-bede-headers>=4.2rc1' 'linux-bede-headers<4.3' "nvidia-340xx-utils=$pkgver" "nvidia-340xx-libgl=$pkgver")
 conflicts=('nvidia')
 provides=('nvidia')
 license=('custom')
@@ -20,12 +20,14 @@ options=(!strip)
 source=(
     "nv-drm.patch"
     "nvidia-4.0.patch"
+    "nvidia-4.2.patch"
 )
 source_i686=("http://download.nvidia.com/XFree86/Linux-x86/$pkgver/NVIDIA-Linux-x86-$pkgver.run")
 source_x86_64=("http://download.nvidia.com/XFree86/Linux-x86_64/$pkgver/NVIDIA-Linux-x86_64-$pkgver-no-compat32.run")
 
 sha256sums=('c9986c306f452614fcf23990c55ffe12bdc451bcbd65a5200269f90a722a3d35'
-            '0b2594eec2ed869245041ead9a3cbe92e5b9b2461c3ede7406004ffae240d6e2')
+            '0b2594eec2ed869245041ead9a3cbe92e5b9b2461c3ede7406004ffae240d6e2'
+            '01fe34a2eeb88057d51849098966e202f1ab94e548afe85ef25f533c8375e3c3')
 sha256sums_i686=('9b29d93b49009caed84a8852825c3e7c6ebbbba8ec99b03ee5113108c8b036d0')
 sha256sums_x86_64=('4c1ede2381cdd48139cdc4f3c657c5c347367160a6b1692bf09454969fb6d004')
 
@@ -39,6 +41,7 @@ prepare() {
     # patch if needed
     patch -p0 -i "$srcdir/nv-drm.patch"
     patch -p0 -i "$srcdir/nvidia-4.0.patch"
+    patch -Np1 -i ${srcdir}/nvidia-4.2.patch
 }
 
 build() {
@@ -53,7 +56,7 @@ build() {
 }
 
 package() {
-    depends=('linux-bede>=4.1' 'linux-bede<4.2' "nvidia-340xx-utils=$pkgver" "nvidia-340xx-libgl=$pkgver")
+    depends=('linux-bede>=4.2rc1' 'linux-bede<4.3' "nvidia-340xx-utils=$pkgver" "nvidia-340xx-libgl=$pkgver")
 
     install -Dm644 "$srcdir/$_pkg/kernel/nvidia.ko" \
         "$pkgdir/usr/lib/modules/$_extramodules/$_pkgname/nvidia.ko"
