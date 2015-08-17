@@ -1,13 +1,13 @@
 pkgbase = nvidia-340xx-bede
 	pkgdesc = NVIDIA 340xx drivers for linux-bede
 	pkgver = 340.76
-	pkgrel = 26
+	pkgrel = 27
 	url = http://www.nvidia.com/
 	install = nvidia.install
 	arch = i686
 	arch = x86_64
 	license = custom
-	makedepends = linux-bede>=4.1.5
+	makedepends = linux-bede>=4.1.6
 	makedepends = linux-bede<4.2
 	makedepends = linux-bede-headers>=4.1
 	makedepends = linux-bede-headers<4.2
