@@ -4,9 +4,9 @@
 
 _pkgname=nvidia
 pkgname=$_pkgname-340xx-bede
-pkgver=340.76
+pkgver=340.93
 _extramodules=4.2-BEDE-external
-pkgrel=30
+pkgrel=1
 pkgdesc="NVIDIA 340xx drivers for linux-bede"
 arch=('i686' 'x86_64')
 url="http://www.nvidia.com/"
@@ -19,17 +19,15 @@ options=(!strip)
 
 source=(
     "nv-drm.patch"
-    "nvidia-4.0.patch"
     "nvidia-4.2.patch"
 )
 source_i686=("http://download.nvidia.com/XFree86/Linux-x86/$pkgver/NVIDIA-Linux-x86-$pkgver.run")
 source_x86_64=("http://download.nvidia.com/XFree86/Linux-x86_64/$pkgver/NVIDIA-Linux-x86_64-$pkgver-no-compat32.run")
 
 sha256sums=('c9986c306f452614fcf23990c55ffe12bdc451bcbd65a5200269f90a722a3d35'
-            '0b2594eec2ed869245041ead9a3cbe92e5b9b2461c3ede7406004ffae240d6e2'
             '01fe34a2eeb88057d51849098966e202f1ab94e548afe85ef25f533c8375e3c3')
-sha256sums_i686=('9b29d93b49009caed84a8852825c3e7c6ebbbba8ec99b03ee5113108c8b036d0')
-sha256sums_x86_64=('4c1ede2381cdd48139cdc4f3c657c5c347367160a6b1692bf09454969fb6d004')
+sha256sums_i686=('4a81c158302c595e1e72b5a1812eb3c67c8cf584ca74b1bc24163dad5289d612')
+sha256sums_x86_64=('8fb230a7579a15c778ab7c2f160830682919729235beb8ea2b84326528c54843')
 
 [[ "$CARCH" = "i686" ]] && _pkg="NVIDIA-Linux-x86-${pkgver}"
 [[ "$CARCH" = "x86_64" ]] && _pkg="NVIDIA-Linux-x86_64-${pkgver}-no-compat32"
@@ -40,7 +38,6 @@ prepare() {
     cd $_pkg
     # patch if needed
     patch -p0 -i "$srcdir/nv-drm.patch"
-    patch -p0 -i "$srcdir/nvidia-4.0.patch"
     patch -Np1 -i ${srcdir}/nvidia-4.2.patch
 }
 
