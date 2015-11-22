@@ -1,7 +1,7 @@
 pkgbase = nvidia-340xx-bede
 	pkgdesc = NVIDIA 340xx drivers for linux-bede
 	pkgver = 340.96
-	pkgrel = 1
+	pkgrel = 2
 	url = http://www.nvidia.com/
 	install = nvidia.install
 	arch = i686
@@ -16,8 +16,6 @@ pkgbase = nvidia-340xx-bede
 	provides = nvidia
 	conflicts = nvidia-bede
 	options = !strip
-	source = nv-drm.patch
-	sha256sums = c9986c306f452614fcf23990c55ffe12bdc451bcbd65a5200269f90a722a3d35
 	source_i686 = http://download.nvidia.com/XFree86/Linux-x86/340.96/NVIDIA-Linux-x86-340.96.run
 	sha256sums_i686 = c40e2778cd1ab036a76e1896fe2f77c4aa7baa215dbbdb11a2f4c5f05e1a478e
 	source_x86_64 = http://download.nvidia.com/XFree86/Linux-x86_64/340.96/NVIDIA-Linux-x86_64-340.96-no-compat32.run
