@@ -6,7 +6,7 @@ _pkgname=nvidia
 pkgname=$_pkgname-340xx-bede
 pkgver=340.96
 _extramodules=4.3-BEDE-external
-pkgrel=5
+pkgrel=5.1
 pkgdesc="NVIDIA 340xx drivers for linux-bede"
 arch=('i686' 'x86_64')
 url="http://www.nvidia.com/"
@@ -17,9 +17,13 @@ license=('custom')
 install=nvidia.install
 options=(!strip)
 
+source=(
+    'license-hack.patch'
+)
 source_i686=("http://download.nvidia.com/XFree86/Linux-x86/$pkgver/NVIDIA-Linux-x86-$pkgver.run")
 source_x86_64=("http://download.nvidia.com/XFree86/Linux-x86_64/$pkgver/NVIDIA-Linux-x86_64-$pkgver-no-compat32.run")
 
+sha256sums=('01fe34a2eeb88057d51849098966e202f1ab94e548afe85ef25f533c8375e3c3')
 sha256sums_i686=('c40e2778cd1ab036a76e1896fe2f77c4aa7baa215dbbdb11a2f4c5f05e1a478e')
 sha256sums_x86_64=('280f9db2aea52cab42e141f0393604c7a6d43e7f65d3e60c2319c2674ecc14c4')
 
@@ -31,6 +35,7 @@ prepare() {
     sh $_pkg.run --extract-only
     cd $_pkg
     # patch if needed
+    patch -Np1 -i "$srcdir/license-hack.patch"
 }
 
 build() {
@@ -38,10 +43,10 @@ build() {
     cd $_pkg/kernel
     make SYSSRC=/usr/lib/modules/$_kernver/build module
 
-    if [[ "$CARCH" = "x86_64" ]]; then
-        cd uvm
-        make SYSSRC=/usr/lib/modules/"${_kernver}/build" module
-    fi
+    #if [[ "$CARCH" = "x86_64" ]]; then
+        #cd uvm
+        #make SYSSRC=/usr/lib/modules/"${_kernver}/build" module
+    #fi
 }
 
 package() {
@@ -50,10 +55,10 @@ package() {
     install -Dm644 "$srcdir/$_pkg/kernel/nvidia.ko" \
         "$pkgdir/usr/lib/modules/$_extramodules/$_pkgname/nvidia.ko"
 
-    if [[ "$CARCH" = "x86_64" ]]; then
-        install -D -m644 "${srcdir}/${_pkg}/kernel/uvm/nvidia-uvm.ko" \
-            "${pkgdir}/usr/lib/modules/${_extramodules}/nvidia-uvm.ko"
-    fi
+    #if [[ "$CARCH" = "x86_64" ]]; then
+        #install -D -m644 "${srcdir}/${_pkg}/kernel/uvm/nvidia-uvm.ko" \
+            #"${pkgdir}/usr/lib/modules/${_extramodules}/nvidia-uvm.ko"
+    #fi
 
     install -dm755 "$pkgdir/usr/lib/modprobe.d"
     echo "blacklist nouveau" >> "$pkgdir/usr/lib/modprobe.d/$pkgname.conf"
