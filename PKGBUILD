@@ -5,21 +5,23 @@
 _pkgname=nvidia
 pkgname=$_pkgname-340xx-bede
 pkgver=340.96
-_extramodules=4.5-BEDE-external
-pkgrel=21
+_extramodules=4.6-BEDE-external
+pkgrel=21.1
 pkgdesc="NVIDIA 340xx drivers for linux-bede"
 arch=('i686' 'x86_64')
 url="http://www.nvidia.com/"
-makedepends=('linux-bede>=4.5.5' 'linux-bede<4.6' 'linux-bede-headers>=4.5' 'linux-bede-headers<4.6' "nvidia-340xx-utils=$pkgver" "nvidia-340xx-libgl=$pkgver")
+makedepends=('linux-bede>=4.6' 'linux-bede<4.7' 'linux-bede-headers>=4.6' 'linux-bede-headers<4.7' "nvidia-340xx-utils=$pkgver" "nvidia-340xx-libgl=$pkgver")
 conflicts=('nvidia-bede')
 provides=('nvidia')
 license=('custom')
 install=nvidia.install
 options=(!strip)
 
+source=('linux-4.6.patch')
 source_i686=("http://download.nvidia.com/XFree86/Linux-x86/$pkgver/NVIDIA-Linux-x86-$pkgver.run")
 source_x86_64=("http://download.nvidia.com/XFree86/Linux-x86_64/$pkgver/NVIDIA-Linux-x86_64-$pkgver-no-compat32.run")
 
+sha256sums=('e813c31a9450200f533d12aa98dd5db44d7dc5b548697e9e9251198f917ffba5')
 sha256sums_i686=('c40e2778cd1ab036a76e1896fe2f77c4aa7baa215dbbdb11a2f4c5f05e1a478e')
 sha256sums_x86_64=('280f9db2aea52cab42e141f0393604c7a6d43e7f65d3e60c2319c2674ecc14c4')
 
@@ -31,6 +33,7 @@ prepare() {
     sh $_pkg.run --extract-only
     cd $_pkg
     # patch if needed
+    patch -p1 -i "$srcdir/linux-4.6.patch"
 }
 
 build() {
@@ -45,7 +48,7 @@ build() {
 }
 
 package() {
-    depends=('linux-bede>=4.5' 'linux-bede<4.6' "nvidia-340xx-utils=$pkgver" "nvidia-340xx-libgl=$pkgver")
+    depends=('linux-bede>=4.6' 'linux-bede<4.7' "nvidia-340xx-utils=$pkgver" "nvidia-340xx-libgl=$pkgver")
 
     install -Dm644 "$srcdir/$_pkg/kernel/nvidia.ko" \
         "$pkgdir/usr/lib/modules/$_extramodules/$_pkgname/nvidia.ko"
