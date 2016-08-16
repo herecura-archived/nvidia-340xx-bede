@@ -6,11 +6,20 @@ _pkgname=nvidia
 pkgname=$_pkgname-340xx-bede
 pkgver=340.96
 _extramodules=4.7-BEDE-external
-pkgrel=27
+_current_linux_version=4.7.1
+_next_linux_version=4.8
+pkgrel=28
 pkgdesc="NVIDIA 340xx drivers for linux-bede"
 arch=('i686' 'x86_64')
 url="http://www.nvidia.com/"
-makedepends=('linux-bede>=4.7' 'linux-bede<4.8' 'linux-bede-headers>=4.7' 'linux-bede-headers<4.8' "nvidia-340xx-utils=$pkgver" "nvidia-340xx-libgl=$pkgver")
+makedepends=(
+    "linux-bede>=$_current_linux_version"
+    "linux-bede-headers>=$_current_linux_version"
+    "linux-bede<$_next_linux_version"
+    "linux-bede-headers<$_next_linux_version"
+    "nvidia-340xx-utils=$pkgver"
+    "nvidia-340xx-libgl=$pkgver"
+)
 conflicts=('nvidia-bede')
 provides=('nvidia')
 license=('custom')
@@ -48,7 +57,12 @@ build() {
 }
 
 package() {
-    depends=('linux-bede>=4.7' 'linux-bede<4.8' "nvidia-340xx-utils=$pkgver" "nvidia-340xx-libgl=$pkgver")
+	depends=(
+        "linux-bede>=$_current_linux_version"
+        "linux-bede<$_next_linux_version"
+        "nvidia-340xx-utils=$pkgver"
+        "nvidia-340xx-libgl=$pkgver"
+    )
 
     install -Dm644 "$srcdir/$_pkg/kernel/nvidia.ko" \
         "$pkgdir/usr/lib/modules/$_extramodules/$_pkgname/nvidia.ko"
