@@ -5,10 +5,10 @@
 _pkgname=nvidia
 pkgname=$_pkgname-340xx-bede
 pkgver=340.98
-_extramodules=4.7-BEDE-external
-_current_linux_version=4.7.7
-_next_linux_version=4.8
-pkgrel=4
+_extramodules=4.8-BEDE-external
+_current_linux_version=4.8.1
+_next_linux_version=4.9
+pkgrel=5
 pkgdesc="NVIDIA 340xx drivers for linux-bede"
 arch=('i686' 'x86_64')
 url="http://www.nvidia.com/"
@@ -23,7 +23,6 @@ makedepends=(
 conflicts=('nvidia-bede')
 provides=('nvidia')
 license=('custom')
-install=nvidia.install
 options=(!strip)
 
 source_i686=("http://us.download.nvidia.com/XFree86/Linux-x86/$pkgver/NVIDIA-Linux-x86-$pkgver.run")
@@ -75,7 +74,5 @@ package() {
 
     # gzip all modules
     find "$pkgdir" -name '*.ko' -exec gzip -9 {} \;
-
-    sed -i -e "s/EXTRAMODULES='.*'/EXTRAMODULES='$_extramodules'/" "$startdir/nvidia.install"
 }
 
