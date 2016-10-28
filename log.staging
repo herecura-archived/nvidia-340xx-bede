@@ -1,0 +1,266 @@
+:: Synchronizing package databases...
+ herecura-staging is up to date
+ staging is up to date
+ herecura-testing is up to date
+ testing is up to date
+ herecura is up to date
+ core is up to date
+ extra is up to date
+ blackeagle-pre-community-staging is up to date
+ community-staging is up to date
+ blackeagle-pre-community-testing is up to date
+ community-testing is up to date
+ blackeagle-pre-community is up to date
+ community is up to date
+:: Starting full system upgrade...
+ there is nothing to do
+==> Building in chroot for [herecura-staging] (x86_64)...
+==> Creating clean working copy [build]...done
+==> Making package: nvidia-340xx-bede 340.98-9 (Thu Oct 27 22:46:39 CEST 2016)
+==> Retrieving sources...
+  -> Found NVIDIA-Linux-x86_64-340.98-no-compat32.run
+==> Validating source_x86_64 files with sha256sums...
+    NVIDIA-Linux-x86_64-340.98-no-compat32.run ... Passed
+==> Making package: nvidia-340xx-bede 340.98-9 (Thu Oct 27 22:46:40 CEST 2016)
+==> Checking runtime dependencies...
+==> Checking buildtime dependencies...
+==> Installing missing dependencies...
+warning: skipping target: linux-bede
+warning: skipping target: linux-bede-headers
+resolving dependencies...
+:: There are 2 providers available for xf86-input-driver:
+:: Repository extra
+   1) xf86-input-evdev  2) xf86-input-libinput
+
+Enter a number (default=1): 
+looking for conflicting packages...
+warning: dependency cycle detected:
+warning: harfbuzz will be installed before its freetype2 dependency
+warning: dependency cycle detected:
+warning: nvidia-340xx-libgl will be installed before its nvidia-340xx-utils dependency
+
+Packages (54) dbus-1.10.12-1  fontconfig-2.12.1-3  fontsproto-2.1.3-1  freetype2-2.7-2  graphite-1:1.3.8-1  harfbuzz-1.3.3-1  hwids-20160801-1  iptables-1.6.0-1  kbd-2.0.3-1  kbproto-1.0.7-1  kmod-23-1  libdrm-2.4.71-1  libelf-0.167-1  libepoxy-1.3.1-1  libevdev-1.5.4-1  libfontenc-1.1.3-1  libmnl-1.0.4-1  libnftnl-1.0.6-1  libpciaccess-0.13.4-1  libpng-1.6.26-2  libseccomp-2.3.1-1  libunwind-1.1-3  libx11-1.6.4-1  libxau-1.0.8-2  libxcb-1.12-1  libxdmcp-1.1.2-1  libxfont-1.5.2-1  libxkbfile-1.0.9-1  libxshmfence-1.2-1  mkinitcpio-21-1  mkinitcpio-busybox-1.24.2-1  mtdev-1.1.5-1  pixman-0.34.0-1  systemd-231-4  xcb-proto-1.12-2  xf86-input-evdev-2.10.4-1  xkeyboard-config-2.19-1  xorg-bdftopcf-1.0.5-1  xorg-font-util-1.3.1-1  xorg-font-utils-7.6-4  xorg-fonts-alias-1.0.3-1  xorg-fonts-encodings-1.0.4-4  xorg-fonts-misc-1.0.3-4  xorg-mkfontdir-1.0.7-2  xorg-mkfontscale-1.1.2-1  xorg-server-1.18.4-1  xorg-server-common-1.18.4-1  xorg-setxkbmap-1.3.1-1  xorg-xkbcomp-1.3.1-1  xproto-7.0.31-1  linux-bede-4.8.4-2  linux-bede-headers-4.8.4-2  nvidia-340xx-libgl-340.98-1  nvidia-340xx-utils-340.98-1
+
+Total Installed Size:  340.24 MiB
+
+:: Proceed with installation? [Y/n] 
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+:: Processing package changes...
+installing kmod...
+installing mkinitcpio-busybox...
+installing dbus...
+installing libmnl...
+installing libnftnl...
+installing iptables...
+installing kbd...
+installing hwids...
+installing libelf...
+installing libseccomp...
+installing systemd...
+warning: directory permissions differ on /var/log/journal/
+filesystem: 755  package: 2755
+Creating group systemd-journal-upload with gid 999.
+Creating user systemd-journal-upload (systemd Journal Upload) with uid 999 and gid 999.
+Creating group systemd-coredump with gid 998.
+Creating user systemd-coredump (systemd Core Dumper) with uid 998 and gid 998.
+Creating group systemd-journal-remote with gid 997.
+Creating user systemd-journal-remote (systemd Journal Remote) with uid 997 and gid 997.
+Created symlink /etc/systemd/system/getty.target.wants/getty@tty1.service -> /usr/lib/systemd/system/getty@.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/remote-fs.target -> /usr/lib/systemd/system/remote-fs.target.
+:: Append 'init=/usr/lib/systemd/systemd' to your kernel command line in your
+   bootloader to replace sysvinit with systemd, or install systemd-sysvcompat
+Optional dependencies for systemd
+    cryptsetup: required for encrypted block devices
+    libmicrohttpd: remote journald capabilities
+    quota-tools: kernel-level quota management
+    systemd-sysvcompat: symlink package to provide sysvinit binaries
+    polkit: allow administration as unprivileged user
+installing mkinitcpio...
+Optional dependencies for mkinitcpio
+    xz: Use lzma or xz compression for the initramfs image [installed]
+    bzip2: Use bzip2 compression for the initramfs image [installed]
+    lzop: Use lzo compression for the initramfs image
+    lz4: Use lz4 compression for the initramfs image [installed]
+    mkinitcpio-nfs-utils: Support for root filesystem on NFS
+installing linux-bede...
+Optional dependencies for linux-bede
+    crda: to set the correct wireless channels of your country
+    linux-firmware: when having some hardware needing special firmware
+installing linux-bede-headers...
+installing libepoxy...
+installing xproto...
+installing libxdmcp...
+installing libpng...
+installing graphite...
+installing harfbuzz...
+Optional dependencies for harfbuzz
+    cairo: hb-view program
+installing freetype2...
+Optional dependencies for freetype2
+    libx11: Some demo programs [pending]
+installing libfontenc...
+installing fontsproto...
+installing libxfont...
+installing libpciaccess...
+installing libdrm...
+installing pixman...
+installing libxau...
+installing xkeyboard-config...
+installing xcb-proto...
+installing libxcb...
+installing kbproto...
+installing libx11...
+installing libxkbfile...
+installing xorg-xkbcomp...
+installing xorg-setxkbmap...
+installing xorg-fonts-encodings...
+installing xorg-fonts-alias...
+installing xorg-bdftopcf...
+installing xorg-mkfontscale...
+installing xorg-mkfontdir...
+installing xorg-font-util...
+installing xorg-font-utils...
+installing fontconfig...
+  
+  Fontconfig configuration is done via /etc/fonts/conf.avail and conf.d.
+  Read /etc/fonts/conf.d/README for more information.
+
+  Configuration via /etc/fonts/local.conf is still possible,
+  but is no longer recommended for options available in conf.avail.
+
+  Main systemwide configuration should be done by symlinks
+  (especially for autohinting, sub-pixel and lcdfilter):
+  
+  cd /etc/fonts/conf.d
+  ln -s ../conf.avail/XX-foo.conf
+  
+  Check also https://wiki.archlinux.org/index.php/Font_Configuration
+  and https://wiki.archlinux.org/index.php/Fonts.
+
+updating font cache... done.
+installing xorg-fonts-misc...
+Updating font cache... done.
+installing libunwind...
+installing xorg-server-common...
+installing libxshmfence...
+installing nvidia-340xx-libgl...
+installing mtdev...
+installing libevdev...
+installing xf86-input-evdev...
+installing xorg-server...
+>>> xorg-server has now the ability to run without root rights with
+    the help of systemd-logind. xserver will fail to run if not launched
+    from the same virtual terminal as was used to log in.
+    Without root rights, log files will be in ~/.local/share/xorg/ directory.
+
+    Old behavior can be restored through Xorg.wrap config file.
+    See Xorg.wrap man page (man xorg.wrap).
+installing nvidia-340xx-utils...
+If you run into trouble with CUDA not being available, run nvidia-modprobe first.
+Optional dependencies for nvidia-340xx-utils
+    gtk2: nvidia-settings
+    xorg-server-devel: nvidia-xconfig
+    opencl-nvidia-340xx: OpenCL support
+:: Running post-transaction hooks...
+(1/3) Rerun depmod for linux-bede
+(2/3) Regenerate initcpio for linux-bede
+==> Building image from preset: /etc/mkinitcpio.d/linux-bede.preset: 'default'
+  -> -k 4.8.4-2-BEDE -c /etc/mkinitcpio.conf -g /boot/initramfs-bede.img
+==> Starting build: 4.8.4-2-BEDE
+  -> Running build hook: [base]
+  -> Running build hook: [udev]
+  -> Running build hook: [autodetect]
+  -> Running build hook: [modconf]
+  -> Running build hook: [block]
+  -> Running build hook: [filesystems]
+  -> Running build hook: [keyboard]
+  -> Running build hook: [fsck]
+==> Generating module dependencies
+==> Creating gzip-compressed initcpio image: /boot/initramfs-bede.img
+==> Image generation successful
+==> Building image from preset: /etc/mkinitcpio.d/linux-bede.preset: 'fallback'
+  -> -k 4.8.4-2-BEDE -c /etc/mkinitcpio.conf -g /boot/initramfs-bede-fallback.img -S autodetect
+==> Starting build: 4.8.4-2-BEDE
+  -> Running build hook: [base]
+  -> Running build hook: [udev]
+  -> Running build hook: [modconf]
+  -> Running build hook: [block]
+==> WARNING: Possibly missing firmware for module: wd719x
+==> WARNING: Possibly missing firmware for module: csiostor
+==> WARNING: Possibly missing firmware for module: qla1280
+==> WARNING: Possibly missing firmware for module: aic94xx
+==> WARNING: Possibly missing firmware for module: advansys
+==> WARNING: Possibly missing firmware for module: qla2xxx
+==> WARNING: Possibly missing firmware for module: bfa
+==> WARNING: Possibly missing firmware for module: isci
+==> WARNING: Possibly missing firmware for module: cxgb4
+==> WARNING: Possibly missing firmware for module: cxgb3
+==> WARNING: Possibly missing firmware for module: ums_eneub6250
+==> WARNING: Possibly missing firmware for module: smsmdtv
+  -> Running build hook: [filesystems]
+  -> Running build hook: [keyboard]
+  -> Running build hook: [fsck]
+==> Generating module dependencies
+==> Creating gzip-compressed initcpio image: /boot/initramfs-bede-fallback.img
+==> Image generation successful
+(3/3) Updating udev Hardware Database...
+==> Retrieving sources...
+  -> Found NVIDIA-Linux-x86_64-340.98-no-compat32.run
+==> Validating source_x86_64 files with sha256sums...
+    NVIDIA-Linux-x86_64-340.98-no-compat32.run ... Passed
+==> Extracting sources...
+==> Starting prepare()...
+Creating directory NVIDIA-Linux-x86_64-340.98-no-compat32
+Verifying archive integrity... OK
+Uncompressing NVIDIA Accelerated Graphics Driver for Linux-x86_64 340.98.........................................................................................................................................................................................................
+==> Starting build()...
+4.8.4-2-BEDE
+NVIDIA: calling KBUILD...
+make[1]: Entering directory '/usr/src/linux-4.8.4-2-BEDE'
+test -e include/generated/autoconf.h -a -e include/config/auto.conf || (		\
+echo >&2;							\
+echo >&2 "  ERROR: Kernel configuration is invalid.";		\
+echo >&2 "         include/generated/autoconf.h or include/config/auto.conf are missing.";\
+echo >&2 "         Run 'make oldconfig && make prepare' on kernel src to fix it.";	\
+echo >&2 ;							\
+/bin/false)
+mkdir -p /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/.tmp_versions ; rm -f /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/.tmp_versions/*
+make -f ./scripts/Makefile.build obj=/build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel
+(cat /dev/null;   echo kernel//build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nvidia.ko;) > /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/modules.order
+  ld -m elf_x86_64   -r -o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nvidia.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-kernel.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-acpi.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-chrdev.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-cray.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-dma.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-drm.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-gvi.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-i2c.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-mempool.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-mmap.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-p2p.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-pat.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-procfs.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-usermap.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-vm.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-vtophys.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-interface.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-mlock.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-pci.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-registry.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-smp.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-usermap.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv_uvm_interface.o /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-frontend.o ; scripts/mod/modpost /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nvidia.o
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-acpi.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-chrdev.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-cray.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-dma.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-drm.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-gvi.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-i2c.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-mempool.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-mmap.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-p2p.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-pat.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-procfs.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-usermap.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-vm.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-vtophys.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-interface.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-mlock.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-pci.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-registry.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-smp.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/os-usermap.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv_uvm_interface.o: No such file or directory
+ld: cannot find /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nv-frontend.o: No such file or directory
+make[2]: *** [scripts/Makefile.build:427: /build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel/nvidia.o] Error 1
+make[1]: *** [Makefile:1471: _module_/build/nvidia-340xx-bede/src/NVIDIA-Linux-x86_64-340.98-no-compat32/kernel] Error 2
+make[1]: Leaving directory '/usr/src/linux-4.8.4-2-BEDE'
+NVIDIA: left KBUILD.
+nvidia.ko failed to build!
+make: *** [Makefile:185: nvidia.ko] Error 1
+==> ERROR: A failure occurred in build().
+    Aborting...
+==> ERROR: Build failed, check /home/archbuild/herecura-staging-x86_64/build/build
